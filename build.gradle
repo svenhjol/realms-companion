@@ -1,0 +1,17 @@
+plugins {
+    id 'fabric-loom' version '1.11-SNAPSHOT'
+    id 'maven-publish'
+}
+
+def javaDir = "${projectDir}/../../java"
+def buildFile = new File("${javaDir}/build.gradle")
+def buildUrl = "https://charmony.dev/files/main/build.gradle"
+
+apply from: buildFile.exists() ? buildFile : buildUrl
+
+// Add local dependencies here.
+dependencies {
+    embedMod "charmony-ambient-sounds", "ambient_sounds"
+    embedMod "charmony-travel-journal", "travel_journal"
+    embedMod "charmony-tweaks", "tweaks"
+}
